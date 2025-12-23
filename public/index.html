@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="top-bar">
+  <span>Need help? ⌄</span>
+</header>
+
+<main class="container">
+
+  <h1>From dreamer to Do'er — Make it official!</h1>
+
+  <!-- Info banner -->
+  <div class="info-box">
+    <div class="info-icon">🛡️</div>
+    <div>
+      <h3>Flawless Formation — Or You Get Your Money Back</h3>
+      <p>
+        We know how important it is to get your company formed the right way.
+        If there's an error in your formation due to our service, we'll refund
+        that portion — no questions asked.
+      </p>
+      <a href="#">See Conditions</a>
+    </div>
+  </div>
+
+  <!-- Content grid -->
+  <div class="grid">
+
+    <!-- LEFT: price summary -->
+    <div class="summary">
+      <div class="price">
+        <span class="label">Pay today</span>
+        <span class="amount">$400.75</span>
+      </div>
+
+      <div class="line">
+        <span>Then $297.00 per year</span>
+      </div>
+
+      <div class="breakdown">
+        <div>
+          <span>WY LLC Formation Fee</span>
+          <span>$103.75</span>
+        </div>
+        <div>
+          <span>Starter Plan</span>
+          <span>$297.00</span>
+        </div>
+      </div>
+
+      <div class="subtotal">
+        <span>Subtotal</span>
+        <span>$400.75</span>
+      </div>
+
+      <button class="promo-btn">Add promotion code</button>
+
+      <div class="total">
+        <span>Total due today</span>
+        <span>$400.75</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: payment form -->
+    <div class="card">
+      <h3>Pay with card</h3>
+
+      <form id="paymentForm">
+        <label>Email</label>
+        <input type="email" value="samueludsen@210@gmail.com" required />
+
+        <label>Payment method</label>
+        <div class="card-input">
+          <input type="text" placeholder="1234 1234 1234 1234" maxlength="19" required />
+          <div class="icons">💳</div>
+        </div>
+
+        <div class="row">
+          <input type="text" placeholder="MM / YY" maxlength="5" required />
+          <input type="text" placeholder="CVC" maxlength="3" required />
+        </div>
+
+        <label>Cardholder name</label>
+        <input type="text" placeholder="Full name on card" required />
+
+        <label>Country or region</label>
+        <select>
+          <option>Rwanda</option>
+          <option>United States</option>
+          <option>Kenya</option>
+        </select>
+
+        <button type="submit" class="pay-btn">Subscribe</button>
+
+        <p class="terms">
+          By subscribing, you authorize us to charge you according to
+          the terms until you cancel.
+        </p>
+
+        <p class="powered">Powered by Stripe · Terms · Privacy</p>
+      </form>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script src="script.js">
+    
+</script>
+</body>
+</html>
